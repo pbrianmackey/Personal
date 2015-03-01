@@ -1,5 +1,6 @@
 #VIM Stuff
 
+- To modify vim you create a ~/.vim directory and copy stuff to it (colors folder, vimrc, gvimrc etc)
 - Edit a file: "e: filename"
 - Navigate current directory: "e: ."
 - Visual Mode: "V", characterwise visual mode "v"
@@ -9,6 +10,7 @@
  - ~/.gvimrc (graphic only settings)
  - ~/.vim/ (plugins, language options, colors)
   (vimrc and gvimrc go into home directory.  .vim directory is 3rd party configuration files)
+ - :help filetype (information on filetypes supported by vim)
 
   You can store your files whereever then symlink them to MacVim directory:
 
