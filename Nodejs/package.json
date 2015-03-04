@@ -1,0 +1,23 @@
+{
+  "name": "firstNodeProgram",
+  "version": "0.0.1",
+  "description": "My first helo nodejs program",
+  "main": "app.js",
+  "scripts": {
+    "test": "I dont know what a test command is"
+  },
+  "repository": {
+    "type": "git",
+    "url": "no git repo"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "Brian Mackey",
+  "license": "n/a",
+  "dependencies": {
+    "express": "^4.12.2",
+    "jade": "^1.9.2",
+    "less": "^2.4.0"
+  }
+}

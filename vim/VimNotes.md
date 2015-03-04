@@ -24,6 +24,7 @@
    -:set list : Show tabs and end of line characters
    - :set softtabstop=2 : # of spaces to insert for a tab (sts = short form)
    - :verbose set <optionname> (tells you where an option was set).  Does not tell you options that were set by hand or not set.
-   -
+   - Plugins:  Peepcode, 
+   
 ###vim configuration files are simple sequences of commands just like you would type them in a live session (omit :).
 
