@@ -20,6 +20,10 @@
  - require("./filename") first looks for a filename.js then looks for a filename/ folder.
 
 ###View Engines
+ - layout.jade (master page)
+ - EJS : embedded javascript (another view engine like jade. web forms like)
+   - "npm install ejc-locals"
+  - Vash : MVC (razor) like syntax "@model.item" 
 
  ###Packages.json
 

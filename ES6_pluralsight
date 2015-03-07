@@ -1,0 +1,30 @@
+let will be the new var.
+
+```javascript
+class Employee extends Person {
+	
+	constructor(title, name) {
+		super(name);
+		this._title = title;
+	}
+
+	get title() {
+		return this._title;
+	}
+
+	doWork() {
+		return `${this._name} is working`;
+	}
+}
+```
+
+Functional JS
+
+```
+let add = (x,y) => x + y;
+
+[Compatability table](http://kangax.github.io/compat-table/es6/)
+
+
+[Try out cutting edge features in FF](http://nightly.mozilla.org/)
+
