@@ -43,8 +43,8 @@ describe("how destructure works", function () {
 		var foo2 = o.foo2;
 		var bar2 = o.bar2;
 
-		expect(foo2).toBe(undefined);
-		expect(bar2).toBe(undefined);
+		expect(foo2).toBeUndefined();
+		expect(bar2).toBeUndefined();
 
 		expect(p).toBe(42);
 		expect(q).toBe(true);

@@ -30,8 +30,8 @@ describe("how destructure works", function() {
 		// Assign new variable names failure
 		let {foo2, bar2} = o;
 
-		expect(foo2).toBe(undefined); 
-		expect(bar2).toBe(undefined);
+		expect(foo2).toBeUndefined(); 
+		expect(bar2).toBeUndefined();
 
 		expect(p).toBe(42);
 		expect(q).toBe(true); 
