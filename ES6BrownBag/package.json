@@ -1,0 +1,14 @@
+{
+  "name": "ES6BrownBag",
+  "version": "1.0.0",
+  "description": "Brown Bag covering ES6",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brian Mackey",
+  "license": "ISC"
+}
