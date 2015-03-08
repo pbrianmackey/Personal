@@ -25,13 +25,16 @@ describe("how destructure works", function () {
 		var o = { p: 42, q: true };
 		var p = o.p;
 		var q = o.q;
+		//p = o.p; q = o.q;
 
 		expect(p).toBe(42);
 		expect(q).toBe(true);
 
 		// Assign new variable names
+		//it looks like an object literal is built but it is not
 		var foo = o.p;
 		var bar = o.q;
+		//foo = o.p; bar = o.q
 
 		expect(foo).toBe(42);
 		expect(bar).toBe(true);
@@ -48,5 +51,23 @@ describe("how destructure works", function () {
 
 		expect(p).toBe(42);
 		expect(q).toBe(true);
+	});
+
+	it("works with parameters", function () {
+		//jQuery like API call to POST
+		var doWork = function doWork(url, _ref) {
+			var data = _ref.data;
+			var cache = _ref.cache;
+			var headers = _ref.headers;
+
+			return data;
+		};
+
+		var result = doWork("api/test", {
+			data: "test",
+			cache: false
+		});
+
+		expect(result).toBe("test");
 	});
 });
