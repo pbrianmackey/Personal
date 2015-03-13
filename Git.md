@@ -58,12 +58,14 @@ Removes untracked files.  If you have a file shown that you don't want removed a
 git clean -n (preview the clean)
 git clean -f (clean.  -f is required)
 
+git reset --hard HEAD (reset current environment back to head state)
+
 ##Working with remote repo's
 
 pulling is a combination of fetching and merging.
 
-git log --online | wc -l (count # of lines or commits in the repo)
-git log --online -graph (show commits with branches and merges that have happened)
+git log --oneline | wc -l (count # of lines or commits in the repo)
+git log --oneline -graph (show commits with branches and merges that have happened)
 git shortlog (short for git log --format=short) (list authors and commits foreach)
 git shortlog -sne (summary=no individual messages.  n=numeric ordering by # of commits
   and include email address)
@@ -115,7 +117,9 @@ http(s)/ssh/file nd git.  git protocol is a readonly url that only allows anonym
 not firewall friendly (9418).
 File protocol is for playing around locally.
 
+##Creating an Alias
 
+git config --global alias.lga "log --graph --oneline -- all --decorate"
 
 ####Origin is the git convention for showing where a repo came from.
 
@@ -123,5 +127,33 @@ File protocol is for playing around locally.
 
 visualizing branches:
 
-git log --graph --online (graph of commits)
-git log --graph --online --all --decorate (graph all branches.  visual branches, tags, head label)
+git log --graph --oneline (graph of commits)
+git log --graph --oneline --all --decorate (graph all branches.  visual branches, tags, head label)
+
+####Branching off a particular commit
+
+git branch branchName <commitSHA>
+
+####Rename a branch
+
+git branch -m oldName newName
+
+####Delete a branch
+
+git branch -d branchName
+
+####Recovering a branch
+
+git reflog (all references.  where HEAD has pointed)
+
+These deleted commits stay for just 30 days.
+
+####Create local branch
+
+branches are labels on SHA1 hashes of individual commits.  The biggest difference between a tag and a commit is that a tag does not change with commits whereas a branch does.
+
+####Stash
+
+git stash list (list all stashes)
+git stash apply (applies stash and keeps it in git stash list)
+git stash pop (remove stash from stash list and apply)
