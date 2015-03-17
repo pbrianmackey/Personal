@@ -1,13 +1,13 @@
 #Introduction to C++ for C# Developers
 
 Fast because allows direct access to RAM.  
-SIMD: Single input multiple data 
+SIMD: Single input multiple data
 ASM: inline assembly
 Current Version C++11: http://en.wikipedia.org/wiki/C%2B%2B14
 
 
 ###Helo World
-- Folders are not folders rather they are filters (in VS 2013). 
+- Folders are not folders rather they are filters (in VS 2013).
 
 ###Problems
 Verbose
@@ -30,6 +30,7 @@ Third party libraries often come as source code that has to be compiled.
 - LLVM : Clang front end. modern, diagnostic messages. (default on OSX)
 
 ###Build systems
+
  ####Local Build systems
  - Make
  - CMake
@@ -71,7 +72,7 @@ Third party libraries often come as source code that has to be compiled.
   - DLL is similar process.
 
 
-    #small libraries (includes) 
+    #small libraries (includes)
     -include <cassert> (test assertions with assert())
     - (pragma once) is an include guard to prevent the same file from being imported 2x
 
@@ -111,3 +112,71 @@ Third party libraries often come as source code that has to be compiled.
 - use sizeof(i) to figure out the size of the int.
 - Initialize all your variables
 - use <cstdint> header.
+
+##float
+
+syntax:  float a = 2.f//0 can be omitted
+typically 32 bits, but can differ by compiler and machine.
+
+double:  typically 64 bit.
+long double: 80 bit extended precision on x86.  Some compilers equate long to double.  Recommended to avoid.
+
+
+##bool
+
+numerics can be converted to bool by compiler.
+
+##pointers
+
+initialized with:
+
+int *a = &b;//or...
+int *a = nullptr;
+//get value out
+float a = *b;//dereferencing
+
+##special syntax for class/structs (person->name).
+
+//gotcha
+int* x,y;//only x is a pointer here
+
+double **p;//pointer to pointer
+
+Compilers perform no checking of pointers.
+
+###References
+
+Similar to the C#/Java reference type concept.  However, references work on value types too.  There is no "reference type".
+
+int &x = y;
+"x is a reference to y here."  When you change x you change y too.  No operator required to access the value.
+
+Pointer to reference is illegal.  Use references over pointers when possible.  This avoids the need to put & in front of parameters.
+
+
+##Arrays
+C arrays not too friendly as they are pointers with unknown length.  std::array (known size), std::vector (unknown size).  
+
+##Character encoding
+
+_t is used in windows to denote support for both char and wchar (wide character).  Wide is compiler specific and recommended not to be used, however windows uses it like crazy.
+
+char/wchar, string/wstring, main/wmain, cout/wcout.
+
+####Strings
+
+Strings are arrays of characters terminated by zero.
+
+char *text = "hello string";
+
+wide characters:
+
+wchar_t *text = L"hello";
+
+Better to use std::string (std::wstring available). Provides extensions too.  Avoid C-style strings.  If unicode is turned off everything uses char.  If unicode is turned on everything uses wchar_t.
+
+##stdafx.h
+
+Has to be included as first line in all cpp files.  This generates the ".pch or precompiled header" file in debug folder.
+
+Contains all the references to all the .h files you need in your program.  This is used in combination with precompiled headers.  So is targetversion.h.  targetversion.h is not a necessary file.  stdafx.h is a necessary file.  

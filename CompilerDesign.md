@@ -66,3 +66,7 @@ Uses the first component of the tokens (firstComponent,secondComponenent) to cre
 
 ##Semantic Analysis
 Uses the syntax tree and symbol table to check the source for semantic consistency with the language definition.  Gathers type information.  
+
+##Phases into passes
+
+In an implementation, several phases may be grouped together into a pass that procceses 1 file.
