@@ -146,7 +146,7 @@ Compilers perform no checking of pointers.
 
 ###References
 
-Similar to the C#/Java reference type concept.  However, references work on value types too.  There is no "reference type".
+Variables by default are pass by value.  You need to use references or pointers to get the value changed.  Similar to the C#/Java reference type concept.  However, references work on value types too.  There is no "reference type".
 
 int &x = y;
 "x is a reference to y here."  When you change x you change y too.  No operator required to access the value.
@@ -180,3 +180,34 @@ Better to use std::string (std::wstring available). Provides extensions too.  Av
 Has to be included as first line in all cpp files.  This generates the ".pch or precompiled header" file in debug folder.
 
 Contains all the references to all the .h files you need in your program.  This is used in combination with precompiled headers.  So is targetversion.h.  targetversion.h is not a necessary file.  stdafx.h is a necessary file.  
+
+##The first time a file is compiled all the references have to be brought into the file.  After that the file can stand alone.  This is why we have precompiled headers.
+
+##Type inferencing
+
+C++ supports "auto" variables similar to C#'s "var".
+
+##Stack and the heap
+
+Stack variables are cleaned up automatically when you exit the scope.  Stack size is limited.  Heap stores large items.  Use new keyboard to put things on the heap.  These have to be cleaned up by you!  new'd items are always pointers.  
+
+std::string s("hello");//heap
+std::string* t = new std::string("world");//stack
+
+delete t;//deallocate
+
+int* values = new int[12];
+
+delete[] values;//note the different syntax
+
+##Functions
+
+funky new syntax:
+
+auto add2(int a, int b) -> int {return a + b; }
+
+treat a function as a template (don't know what templates are yet)
+
+inline int add(int a, int b) {return a + b; }
+
+you can use the const modifier on parameters.
