@@ -135,6 +135,8 @@ int *a = nullptr;
 //get value out
 float a = *b;//dereferencing
 
+Its ok to check pointers with If(pointer) to see if it exists
+
 ##special syntax for class/structs (person->name).
 
 //gotcha
@@ -211,3 +213,236 @@ treat a function as a template (don't know what templates are yet)
 inline int add(int a, int b) {return a + b; }
 
 you can use the const modifier on parameters.
+
+##Lamba Functions
+
+```C++
+auto doubleValue = [](int z) {return z * 2;};
+```
+
+####Lambda Capture
+
+[] - does not access enclosing scope
+[=]- capture everything by value
+[&]- capture everything by reference
+[x, &y]- capture x by value, y by ref
+[&, z]- capture everything by reference, but z by value
+
+##Enums
+
+enum Color {Red, Green, Blue};
+
+In C++ enum declarations have global scope.  So its similar to declaring
+
+int Red = 0;
+
+So its better to encapsulate the state:
+
+enum class ColorEncapsulated {Red, Green, Blue};
+
+You can declare data type and assign values too.
+
+enum class ColorEncapsulated: short {Red, Green, Blue = 4};
+
+##Union
+
+```C++
+union Data {int integer; float fpnumber; char* text;};
+Data d;
+d.fpnumber = 0.5f;
+```
+All these fields occupy the same memory space.  So you can only assign 1 of the three types.
+
+
+[__m128](https://msdn.microsoft.com/en-us/library/ayeb3ayc.aspx) is a SIMD (single instruction multiple data) cpu register.  m128_f32 (128 bit register in the cpu) allows you to perform an operation on several numbers at the same time.  You can add multiple numbers at the same time.  You are re-using the same memory space.
+
+##Structures
+
+```c++
+struct Size
+{
+  int width, height;
+};
+
+Size s{15, 10};
+s.height;
+```
+
+A struct is a container for a certain amount of data.  There is no inheritance.
+
+##Iteration
+
+```C++
+int a[]{1,2,3,4};
+for(int *p = a, *e = a + 4; p != e; ++p)//pointer arithmetic on *e
+//*e points to the element in a just beyond the last element (end)
+cout << *p << "\t";
+cout << endl;
+
+//use helpers (method 2)
+auto beginArray = begin(a);
+auto endArray = end(a);
+
+for(; ba != ea; ba++)//while ba != ea keep going
+
+//method 3.  foreach
+
+for(auto value : a)
+  cout << value << "\t";
+```
+
+##OO programming
+
+```c++
+//person.h
+class Person
+{
+  public:
+    int age;
+    string name;
+
+    void greet();
+}
+
+//main.cpp
+int main()
+{
+  Person p;
+  p.name = "Jane Doe";
+  p.age = 30;
+
+  Person *p2 = new Person;
+  p2->age = 25;
+  p2->name = "John Doe";
+
+  delete p2;
+  getchar();
+  return 0;
+}
+```
+
+definining implementation of a func() "inline" means in the header file.
+Alternatively, func() can be defined as a member function in Person.cpp:
+
+```c++
+//person.cpp
+void Person::greet()
+{
+  cout <<"My name is " << name <<
+  this->name << " and I am " <<
+  age << " years old " << endl;
+}
+```
+`this` is a pointer to self in a class.  Constants are not static by default.
+
+```c++
+const static int male = 1;
+```
+
+Members default to private accessibility.  
+
+####Static methods
+
+```c++
+//Person.h
+class Person
+{
+  static int lifeExpectancy;
+  static int getLifeExpectancy();
+}
+
+//Person.cpp
+
+int Person::lifeExpectancy = 80;//Have to initialize static member here!
+int Person::getLifeExpectancy()//notice no static
+{
+  return lifeExpectancy;
+}
+```
+
+####Constructors
+
+```c++
+//.h
+class Person
+{
+  static int lifeExpectancy;
+public:
+  const static int female = 0;
+  const static int male = 1;
+  int age;
+  string name;
+  int sex;
+  Address *address;
+
+  Person(int age, string name, int sex);
+
+  //overload
+  Person(int age, string name, int sex, int house_number,
+    string street_name, string city);
+
+  //dstor
+  ~Person();
+
+  void greet();
+  static int getLifeExpectancy();
+}
+
+//.cpp
+#include "stdafx.h"
+#include "Address.h"
+#include "Person.h"
+
+Person::Person(int age, string name, int sex)
+: age(age), name(name), sex(sex)//initialize fields
+{
+
+}
+//overload
+Person::Person(int age, string name, int sex, int house_number,
+  string street_name, string city)
+  :Person(age, name, sex)
+:
+{
+  if(address != nullptr)
+    delete address;
+
+  address = new Address(house_number, street_name, city);
+}  
+Person::~Person()
+{
+  if(address != nullptr)
+  {
+    delete address;
+    address = nullptr;
+  }
+}
+
+
+void Person::greet();
+{
+  cout << "My name is " <<
+  name << " and I am " <<
+  endl;
+}
+
+int Person::getLifeExpectancy()
+{
+  return lifeExpectancy;
+}
+
+int Person::lifeExpectancy = 80;
+
+//program.cpp
+int main()
+{
+  Person p;//same as writing Person p();//uses default cstor.
+}
+```
+##Includes
+
+If an include relies on another include then it must be listed first.
+
+##Copy cstor
+
+C++ automatically includes a copy cstor.
