@@ -445,4 +445,10 @@ If an include relies on another include then it must be listed first.
 
 ##Copy cstor
 
-C++ automatically includes a copy cstor.
+C++ automatically includes a copy cstor.  The default is a memberwise copy.
+This means the original and the copy are both modified if you change a pointer or reference.
+
+```c++
+//Once you have a copy cstor it will be invoked if you use:
+Person p5 = *p3;
+```
