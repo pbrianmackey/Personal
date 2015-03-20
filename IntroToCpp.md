@@ -214,7 +214,7 @@ inline int add(int a, int b) {return a + b; }
 
 you can use the const modifier on parameters.
 
-##Lamba Functions
+##Lambda Functions
 
 ```C++
 auto doubleValue = [](int z) {return z * 2;};
@@ -452,3 +452,26 @@ This means the original and the copy are both modified if you change a pointer o
 //Once you have a copy cstor it will be invoked if you use:
 Person p5 = *p3;
 ```
+##Inheritance
+
+```c++
+//employee.h
+#pragma once
+#include "Person.h"
+class Employee : public Person//note the strange public modifier
+  {
+    public:
+      Employee(int age, string const& name, string sex)
+        : Person(age, name, sex)
+        {}
+  };
+```
+##casting
+```c++
+Person& person = employee;//thats fine as is
+Employee& employee = static_cast<Employee>(person);//type cast
+```
+
+##Access Restrictions
+By default everything is private.  There is only private, protected and public.
+You can make a friend class to access private members.  protected is accessible within the class and within inheritors.
