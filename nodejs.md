@@ -8,7 +8,7 @@
  - Out of the box node.js is just a wrapper around the Google V8 engine to execute code.
 - Express creates a singleton web object
 
-###Dependency Management 
+###Dependency Management
  - require("./whatever.js"), this is based on an idea called "commonjs".  Similar to requirejs, but different.
  - module.exports (aka exports): exports.first = "This is the first message."
   - Its better to use module.exports instead of just exports because js can get confused if assigning a function to just "exports" (don't know why)
@@ -23,7 +23,7 @@
  - layout.jade (master page)
  - EJS : embedded javascript (another view engine like jade. web forms like)
    - "npm install ejc-locals"
-  - Vash : MVC (razor) like syntax "@model.item" 
+  - Vash : MVC (razor) like syntax "@model.item"
 
  ###Packages.json
 
@@ -45,3 +45,17 @@
    	"underscore": "~1.6.0"
    }
  }
+
+ ##Data Access
+
+ JavaScript objects are typeless.  Greenfield vs Brownfield issue.  If you are brownfield bound to SQL then use a driver.  Use NoSQL or MongoDB on greenfield (document databases over relational DBMS).  
+
+ Objects in the DB are weakly typed.  
+
+ ####Drivers
+ - massisve-js: MySQL, PostgreSQL
+ - msnodesql: MS-SQL
+   - difficult to build on windows
+ - tedious: pure JS SQL.  slow
+ - edge: ScriptCS and node.js interop
+   - C# script 
