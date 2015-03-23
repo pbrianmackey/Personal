@@ -46,16 +46,33 @@
    }
  }
 
- ##Data Access
+##Data Access
 
  JavaScript objects are typeless.  Greenfield vs Brownfield issue.  If you are brownfield bound to SQL then use a driver.  Use NoSQL or MongoDB on greenfield (document databases over relational DBMS).  
 
  Objects in the DB are weakly typed.  
 
- ####Drivers
+####Drivers
  - massisve-js: MySQL, PostgreSQL
  - msnodesql: MS-SQL
    - difficult to build on windows, use (prebuilt version on windows)[https://github.com/jorgeazevedo/node-sqlserver-unofficial]
  - tedious: pure JS SQL.  slow
  - edge: ScriptCS and node.js interop
    - C# script
+
+##NoSQL data stores
+
+- Document or data structure storage.
+- New way of querying.  Not relational.
+- Hierarchical.
+- built to run in parallel (sharding)
+- Examples: MongoDB, RavenDB, Cassandra, Neo4j, Redis, CouchDB
+
+###MongoDB
+
+- Install MongoDB
+- cd to installation path (all the way to /bin)
+- md data
+- mongod -dbpath data --httpinterface --rest (./data on Mac) (starts service)
+- http://localhost:28017/ => Access MongoDB via HTTP
+- local DB is akin to master in SQL
