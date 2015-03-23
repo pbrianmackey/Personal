@@ -55,7 +55,7 @@
  ####Drivers
  - massisve-js: MySQL, PostgreSQL
  - msnodesql: MS-SQL
-   - difficult to build on windows
+   - difficult to build on windows, use (prebuilt version on windows)[https://github.com/jorgeazevedo/node-sqlserver-unofficial]
  - tedious: pure JS SQL.  slow
  - edge: ScriptCS and node.js interop
-   - C# script 
+   - C# script
