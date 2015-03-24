@@ -474,4 +474,4 @@ Employee& employee = static_cast<Employee>(person);//type cast
 
 ##Access Restrictions
 By default everything is private.  There is only private, protected and public.
-You can make a friend class to access private members.  protected is accessible within the class and within inheritors.
+You can make a friend class to access private members.  protected is accessible within the class and within inheritors. 
