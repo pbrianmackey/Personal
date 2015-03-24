@@ -86,3 +86,9 @@ Use gulp watch to
 - Make Tests run
 - Code lints
 - Compile out to css
+
+##No sudo hack
+
+http://jpapa.me/nomoresudo
+
+####NPM stands for "Package manager or javascript package manager"
