@@ -15,3 +15,8 @@
 .col-sm-push-2 (push a column 2 grid colums to the right).  pull goes left.
 
 push and pull are always relative to the left side of the browser.
+
+
+###Map files
+
+To fix mapping files you can add the full non-minified script and the .map file.  Then make sure the server can serve map files.
